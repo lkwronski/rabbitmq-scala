@@ -1,0 +1,9 @@
+[0m[[0m[33mwarn[0m] [0m[0m/home/lwronski/Desktop/study/sr/rabbitmq-scala/src/main/scala/AgencyApp.scala:15:3: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: Left(_)[0m
+[0m[[0m[33mwarn[0m] [0m[0m  loadConfig match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/lwronski/Desktop/study/sr/rabbitmq-scala/src/main/scala/ConveyorApp.scala:13:3: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: Left(_)[0m
+[0m[[0m[33mwarn[0m] [0m[0m  loadConfig match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m
