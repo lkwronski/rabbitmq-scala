@@ -6,4 +6,12 @@
 [0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: Left(_)[0m
 [0m[[0m[33mwarn[0m] [0m[0m  loadConfig match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m  ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/lwronski/Desktop/study/sr/rabbitmq-scala/src/main/scala/agency/RunnerAgency.scala:58:19: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: PlainText[0m
+[0m[[0m[33mwarn[0m] [0m[0m      jsonMessage.typeMessage match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/lwronski/Desktop/study/sr/rabbitmq-scala/src/main/scala/conveyor/RunnerConveyor.scala:31:19: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: PlainText[0m
+[0m[[0m[33mwarn[0m] [0m[0m      jsonMessage.typeMessage match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mfour warnings found[0m

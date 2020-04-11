@@ -13,19 +13,31 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.13.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.scala-lang:scala-reflect:2.13.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.outr:scribe_2.13:2.7.12:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.outr:scribe-macros_2.13:2.7.12:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.outr:perfolation_2.13:1.1.7:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.outr:perfolation-macros_2.13:1.1.7:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe:config:1.4.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.pureconfig:pureconfig_2.13:0.12.3:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.pureconfig:pureconfig-macros_2.13:0.12.3:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.pureconfig:pureconfig-generic_2.13:0.12.3:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.pureconfig:pureconfig-generic-base_2.13:0.12.3:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.pureconfig:pureconfig-core_2.13:0.12.3:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.chuusai:shapeless_2.13:2.3.3:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.rabbitmq:amqp-client:5.8.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.beachape:enumeratum_2.13:1.5.15:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.beachape:enumeratum-macros_2.13:1.5.10:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.beachape:enumeratum-circe_2.13:1.5.23:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:jawn-parser_2.13:1.0.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-macros_2.13:2.1.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-kernel_2.13:2.1.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-core_2.13:2.1.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-parser_2.13:0.13.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-numbers_2.13:0.13.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-jawn_2.13:0.13.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-generic_2.13:0.13.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-core_2.13:0.13.0:jar" level="project" />
     <orderEntry type="library" name="sbt: org.slf4j:slf4j-api:1.7.29:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.rabbitmq:amqp-client:5.8.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.chuusai:shapeless_2.13:2.3.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.pureconfig:pureconfig-core_2.13:0.12.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.pureconfig:pureconfig-generic-base_2.13:0.12.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.pureconfig:pureconfig-generic_2.13:0.12.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.pureconfig:pureconfig-macros_2.13:0.12.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.pureconfig:pureconfig_2.13:0.12.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe:config:1.4.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.outr:perfolation-macros_2.13:1.1.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.outr:perfolation_2.13:1.1.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.outr:scribe-macros_2.13:2.7.12:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.outr:scribe_2.13:2.7.12:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang:scala-reflect:2.13.1:jar" level="project" />
   </component>
 </module>

@@ -13,7 +13,7 @@ object ConveyorApp extends App {
   loadConfig match {
     case Right(config) => {
       RunnerConveyor(Conveyor.TransitLoad, config).consume()
-      RunnerConveyor(Conveyor.PlaceSatelliteOrbit, config).consume()
+      RunnerConveyor(Conveyor.TransitPeople, config).consume()
     }
   }
 }

@@ -1,37 +1,57 @@
 package conveyor
 
+import agency.Ticket
 import com.rabbitmq.client._
 import conifg.RabbitMqConfig
+import io.circe.generic.semiauto.{deriveDecoder, deriveEncoder}
+import io.circe.{Decoder, Encoder}
+import message.JsonMessage
+import message.TypeMessage.{Approved, Commission}
+import runner.RunnerRabbitMq
 
-case class RunnerConveyor(service: Conveyor.Service, config: RabbitMqConfig) {
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
-  val factory = new ConnectionFactory
-  factory.setHost(config.host)
-  val connection: Connection = factory.newConnection
-  val channel: Channel = connection.createChannel
+case class RunnerConveyor(service: Conveyor.Service, config: RabbitMqConfig) extends RunnerRabbitMq {
 
   scribe.info(s"""Init runner Conveyor with service: $service""")
 
   channel.exchangeDeclare(config.exchange, BuiltinExchangeType.TOPIC)
 
-  val queueName: String = channel.queueDeclare(service.toString.toLowerCase, false, false, false, null).getQueue
-  val routingKey = s"${service.toString.toLowerCase}.conveyor"
-  channel.queueBind(queueName, config.exchange, routingKey)
-  channel.basicQos(1)
+  val queueConveyor: String = service.toString.toLowerCase
+  val routingKeyConveyor = s"${service.toString.toLowerCase}.conveyor"
+  bindQueue(queueConveyor, routingKeyConveyor)
+//  channel.basicQos(1)
 
-  scribe.info(s"""Bind queue with key: $routingKey""")
+  scribe.info(s"""Bind queue with key: $routingKeyConveyor""")
 
   val consumer = new DefaultConsumer(channel) {
     override def handleDelivery(consumerTag: String, envelope: Envelope, properties: AMQP.BasicProperties, body: Array[Byte]) = {
-      val message = new String(body, "UTF-8")
-      scribe.info(s"""Conveyor receive ticket: service: $service received: $message""")
+      val jsonMessage = decodeMessage(body)
+      jsonMessage.typeMessage match {
+        case Approved => scribe.error("Invalid type of message for Conveyor")
+        case Commission => consumeCommission(jsonMessage.ticket)
+      }
       val deliveryTag = envelope.getDeliveryTag
       channel.basicAck(deliveryTag, false)
     }
   }
 
+  private def consumeCommission(ticket: Option[Ticket]) = {
+    ticket match {
+      case None => scribe.error("Empty ticket for commission")
+      case Some(t) => {
+        val nameAgency = t.nameAgency
+        scribe.info(s"""Conveyor receive ticket: service: $service received: ${t.getMessage()}""")
+        val jsonMessageResponse = JsonMessage(Approved, ticket)
+        val response = encodeMessage(jsonMessageResponse)
+        channel.basicPublish(config.exchange, s"agency.$nameAgency", null, response.getBytes("UTF-8"))
+      }
+    }
+  }
+
   def consume(): Unit ={
-    channel.basicConsume(queueName, false, consumer)
+      channel.basicConsume(queueConveyor, false, consumer)
   }
 
 }
@@ -49,4 +69,7 @@ object Conveyor {
       case PlaceSatelliteOrbit => s"placesatelliteorbit.conveyor"
     }
   }
+
+  implicit val serviceDecoder: Decoder[Service] = deriveDecoder[Service]
+  implicit val serviceEncoder: Encoder[Service] = deriveEncoder[Service]
 }

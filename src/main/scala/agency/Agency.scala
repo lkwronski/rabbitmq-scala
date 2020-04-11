@@ -10,5 +10,4 @@ case class Agency( name: String) {
   }
 
   private def generateTicketId() = java.util.UUID.randomUUID.toString
-
 }

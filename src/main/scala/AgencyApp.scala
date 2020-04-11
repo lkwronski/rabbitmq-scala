@@ -13,8 +13,9 @@ object AgencyApp extends App {
   val agency = Agency("agency")
 
   loadConfig match {
-    case Right(config) => {
-      RunnerAgency(agency, config).run()
-    }
+    case Right(config) =>
+      val runnerAgency = RunnerAgency(agency, config)
+      runnerAgency.consume()
+      runnerAgency.run()
   }
 }
